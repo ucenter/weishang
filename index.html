@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <script>
+        (function() {
+            if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+                var msViewportStyle = document.createElement("style");
+                msViewportStyle.appendChild(
+                        document.createTextNode("@-ms-viewport{width:auto!important}")
+                );
+                document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>微商</title>
+    <link href="assets/css/af.ui.base.css" rel="stylesheet" />
+    <link href="assets/css/icons.css" rel="stylesheet" charset="utf-8"  />
+    <link href="assets/css/index.css" rel="stylesheet" charset="utf-8"  />
+
+    <script type="text/javascript" charset="utf-8" src="assets/js/appframework.js"></script>
+    <script type="text/javascript" charset="utf-8" src="assets/js/appframework.ui.js"></script>
+    <script type="text/javascript" charset="utf-8" src="assets/js/af.plugins.min.js"></script>
+
+    <script type="text/javascript">
+        var webRoot = "./";
+        // $.os.android=true;
+        $.ui.autoLaunch = false;
+        $.ui.openLinksNewTab = false;
+        $.ui.splitview=false;
+
+
+        $(document).ready(function(){
+            $.ui.launch();
+        });
+
+        function registerLoad(){
+            $.ajax({
+                url:'register.html',
+                success:function(data){
+                    $('#register').html('');
+                    $('#register').append(data)
+                }
+            })
+        }
+    </script>
+
+</head>
+<body>
+<div id="afui">
+    <div id="header" class="weishang-header">
+        <a id='menubadge' onclick='af.ui.toggleSideMenu()' ></a>
+        <a id="" class="icon user my-user"></a>
+    </div>
+    <div id="content">
+        <div title='注册' id="register" class="panel" selected="true" data-load="registerLoad" data-unload="unloadedPanel"  data-footer="none" >
+        </div>
+        <div title='订单列表' id="orderList" class="panel"  data-load="loadedPanel" data-unload="unloadedPanel" data-footer="none"  ></div>
+    </div>
+</div>
+</div>
+</body>
+</html>

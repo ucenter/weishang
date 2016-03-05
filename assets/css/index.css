@@ -1,0 +1,19 @@
+.weishang-header{
+    height: 64px;
+    background-color: #155882;
+}
+.my-user{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 18px;
+}
+.viewport{
+    width: 100%;
+    height: 100%;
+    font-size: 0px;
+}
+.container{
+    width: 100%;
+    height: 100%;
+}
